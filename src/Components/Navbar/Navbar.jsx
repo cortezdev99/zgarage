@@ -1,4 +1,5 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navbar = () => {
   return (
@@ -9,7 +10,7 @@ const Navbar = () => {
 
       <div style={{ paddingTop: "20px", textAlign: "center", margin: "20px 5%", width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
         <div style={{ width: "100px" }}>
-          Home
+          Home <FontAwesomeIcon icon={['fas', 'trash-alt']} />
         </div>
 
         <div style={{ width: "100px" }}>
