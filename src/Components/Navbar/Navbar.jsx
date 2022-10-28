@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -9,7 +10,7 @@ const Navbar = () => {
       </div>
 
       <div style={{ paddingTop: "20px", textAlign: "center", margin: "20px 5%", width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
-        <div style={{ width: "100px", cursor: "pointer" }}>
+        <NavLink to="/" style={{ width: "100px", cursor: "pointer" }}>
           <div style={{ fontSize: "20px" }}>
             <FontAwesomeIcon icon={['fas', 'home']} />
           </div>
@@ -17,9 +18,9 @@ const Navbar = () => {
           <div style={{ paddingTop: "10px", fontSize: "14px" }}>
             Home 
           </div>
-        </div>
+        </NavLink>
 
-        <div style={{ width: "100px", cursor: "pointer" }}>
+        <NavLink to="/schedule-an-appointment" style={{ width: "100px", cursor: "pointer" }}>
           <div style={{ fontSize: "20px" }}>
             <FontAwesomeIcon icon={['far', 'calendar-check']} />
           </div>
@@ -27,9 +28,9 @@ const Navbar = () => {
           <div style={{ paddingTop: "10px", fontSize: "14px" }}>
             Book us 
           </div>
-        </div>
+        </NavLink>
 
-        <div style={{ width: "100px", cursor: "pointer" }}>
+        <NavLink to="/pricing" style={{ width: "100px", cursor: "pointer" }}>
           <div style={{ fontSize: "20px" }}>
             <FontAwesomeIcon icon={['fas', 'tag']} />
           </div>
@@ -37,9 +38,9 @@ const Navbar = () => {
           <div style={{ paddingTop: "10px", fontSize: "14px" }}>
             Pricing 
           </div>
-        </div>
+        </NavLink>
 
-        <div style={{ width: "100px", cursor: "pointer" }}>
+        <NavLink to="/our-team" style={{ width: "100px", cursor: "pointer" }}>
           <div style={{ fontSize: "20px" }}>
             <FontAwesomeIcon icon={['fas', 'id-card']} />
           </div>
@@ -47,9 +48,9 @@ const Navbar = () => {
           <div style={{ paddingTop: "10px", fontSize: "14px" }}>
             Our team 
           </div>
-        </div>
+        </NavLink>
 
-        <div style={{ width: "100px", cursor: "pointer" }}>
+        <NavLink to="/photo-gallery" style={{ width: "100px", cursor: "pointer" }}>
           <div style={{ fontSize: "20px" }}>
             <FontAwesomeIcon icon={['fas', 'images']} />
           </div>
@@ -57,7 +58,7 @@ const Navbar = () => {
           <div style={{ paddingTop: "10px", fontSize: "14px" }}>
             Photo gallery 
           </div>
-        </div>
+        </NavLink>
       </div>
     </div>
   )
