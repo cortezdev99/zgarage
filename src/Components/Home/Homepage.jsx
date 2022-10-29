@@ -10,7 +10,10 @@ const Homepage = () => {
         </div>
 
         <div>
-          <img style={{ display: "flex" }} src="https://via.placeholder.com/200x300" />
+          <img 
+            style={{ objectFit: "cover", width: "100%", display: "flex" }} 
+            src="https://via.placeholder.com/200x300" 
+          />
         </div>
 
         <div style={{ paddingLeft: "10px", textAlign: "right", letterSpacing: "0.75px", lineHeight: "25px", maxWidth: "250px", justifySelf: "center" }}>

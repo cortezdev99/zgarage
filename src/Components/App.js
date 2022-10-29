@@ -2,6 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "../Styles/index.scss";
 import Homepage from "./Home/Homepage";
 import Navbar from "./Navbar/Navbar";
+import OurTeam from "./OurTeam/OurTeam";
+import PhotoGallery from "./PhotoGallery/PhotoGallery";
+import Pricing from "./Pricing/Pricing";
+import ScheduleAppointment from "./ScheduleAppointment/ScheduleAppointment";
 import Icons from "./Utilities/Icons";
 
 const App = () => {
@@ -12,10 +16,14 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Homepage />} />
-          <Route exact path="/schedule-an-appointment" element={<Homepage />} />
-          <Route exact path="/pricing" element={<Homepage />} />
-          <Route exact path="/our-team" element={<Homepage />} />
-          <Route exact path="/photo-gallery" element={<Homepage />} />
+          <Route
+            exact
+            path="/schedule-an-appointment"
+            element={<ScheduleAppointment />}
+          />
+          <Route exact path="/pricing" element={<Pricing />} />
+          <Route exact path="/our-team" element={<OurTeam />} />
+          <Route exact path="/photo-gallery" element={<PhotoGallery />} />
         </Routes>
       </BrowserRouter>
     </div>
