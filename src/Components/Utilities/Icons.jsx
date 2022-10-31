@@ -16,8 +16,8 @@ import {
 
 // fab icons
 import { 
-  
-
+  faFacebookSquare,
+  faInstagram
 } from '@fortawesome/free-brands-svg-icons' 
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -31,7 +31,9 @@ const Icons = () => {
      faImages,
      faPaw,
      faPhone,
-     faMapPin
+     faMapPin,
+     faFacebookSquare,
+     faInstagram
   );
 };
 
