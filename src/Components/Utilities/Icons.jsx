@@ -4,7 +4,9 @@ import {
   faTag,
   faIdCard,
   faImages,
-  faPaw
+  faPaw,
+  faPhone,
+  faMapPin
 } from "@fortawesome/free-solid-svg-icons";
 
 // far icons
@@ -27,7 +29,9 @@ const Icons = () => {
      faTag,
      faIdCard,
      faImages,
-     faPaw
+     faPaw,
+     faPhone,
+     faMapPin
   );
 };
 
