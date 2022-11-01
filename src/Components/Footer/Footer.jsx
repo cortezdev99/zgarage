@@ -28,15 +28,9 @@ const Footer = () => {
           <div style={{ fontSize: "15px", cursor: "pointer" }}>
             2423 S 500 W Bountiful,
             <div>UT, 84010</div>
-          </div>
-          
+          </div>       
         </div>
       </div>
-
-      {/* <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
-        <div>(801) 259-4056</div>
-        <div>10:00 AM - 5:00 PM</div>
-      </div> */}
 
       <div style={{ fontSize: "14px", letterSpacing: "0.75px", lineHeight: "25px", width: "100%", display: "flex", justifyContent: "space-evenly", textAlign: "center" }}>
         <div style={{ width: "120px", cursor: "pointer" }}>Home</div>
