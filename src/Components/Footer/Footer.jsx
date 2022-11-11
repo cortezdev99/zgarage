@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
+import ZukiesGarageLogo from '../../Images/Logos/ZukiesGarage_logo.jpg'
 
 const Footer = () => {
   return (
     <div style={{ padding: "40px", display: "grid", gridTemplateColumns: "1fr", rowGap: "40px", justifyItems: "center" }}>
-      <div>
-        <img src="https://via.placeholder.com/150x150" />
+      <div style={{ width: "100%", maxWidth: "150px" }}>
+        <img style={{ width: "100%", display: "flex" }} src={ZukiesGarageLogo} />
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", margin: "0px 20%", width: "60%" }}>
