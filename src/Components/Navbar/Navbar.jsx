@@ -1,11 +1,12 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
+import ZukiesGarageLogo from '../../Images/Logos/ZukiesGarage_logo.jpg'
 
 const Navbar = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", letterSpacing: "0.75px", lineHeight: "25px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "0.25fr 0.50fr 0.25fr", margin: "0px 5%", width: "90%" }}>
+      <div style={{ paddingTop: "20px", display: "grid", gridTemplateColumns: "0.25fr 0.50fr 0.25fr", margin: "0px 5%", width: "90%" }}>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div style={{ paddingLeft: "10px", fontSize: "20px", transform: "rotate(135deg)" }}>
             <FontAwesomeIcon icon={['fas', 'phone']} />
@@ -17,8 +18,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div style={{ justifySelf: "center" }}>
-          <img style={{ display: "flex" }} src="https://via.placeholder.com/150x175"></img>
+        <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
+          <img style={{ display: "flex", width: "100%", maxWidth: "200px" }} src={ZukiesGarageLogo}></img>
         </div>
 
         <div style={{ textAlign: "end", display: "flex", flexDirection: "row-reverse", alignItems: "center" }}>
