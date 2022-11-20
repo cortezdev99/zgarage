@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import PricingHeading from '../../Images/Pricing/pricing-header-image.jpg'
+import MouseTrap from "../../Images/Homepage/mousetrap.jpg"
 
 const Pricing = () => {
   return (
@@ -31,23 +32,24 @@ const Pricing = () => {
 
           <div style={{ marginTop: "40px", display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: "40px" }}>
             <div>
-              <div style={{ paddingBottom: "10px", borderBottom: "1.5px solid #1d1d1d" }}>Bath and Brush</div>
+              <div style={{ paddingBottom: "10px", borderBottom: "1.5px solid #1d1d1d" }}>Full Service Groom</div>
 
               <ul style={{ margin: "20px 0px 0px" }}>
                 <li style={{ paddingBottom: "10px" }}>High Quality Shampooing</li>
+                <li style={{ paddingBottom: "10px" }}>Conditioning Spray</li>
                 <li style={{ paddingBottom: "10px" }}>Fluff Dry</li>
                 <li style={{ paddingBottom: "10px" }}>Brush Out</li>
                 <li style={{ paddingBottom: "10px" }}>Nail Trim and Dremel</li>
-                <li style={{ paddingBottom: "10px" }}>Pad, Face, and Body Area Trim</li>
-                <li style={{ paddingBottom: "10px" }}>Gland Expression</li>
+                <li style={{ paddingBottom: "10px" }}>Full Body Cut</li>
+                <li style={{ paddingBottom: "10px" }}>Gland Expression (Upon Request)</li>
                 <li style={{ paddingBottom: "10px" }}>Nail Trim and Dremel</li>
                 <li style={{ paddingBottom: "10px" }}>Ear Cleaning (Upon Request)</li>
-                <li style={{ paddingBottom: "10px" }}>Lots of Cuddles!</li>
+                <li style={{ paddingBottom: "10px" }}>Plently of Love and Pets!</li>
               </ul>
             </div>
 
             <div style={{ alignSelf: "center", justifySelf: "end" }}>
-              <img src="https://via.placeholder.com/250x250" />
+              <img style={{ width: "100%", borderRadius: "15px", display: "flex" }} src={MouseTrap} />
             </div>
           </div>
 
@@ -61,15 +63,31 @@ const Pricing = () => {
 
               <ul style={{ margin: "20px 0px 0px", direction: "rtl" }}>
                 <li style={{ paddingBottom: "10px" }}>High Quality Shampooing</li>
+                <li style={{ paddingBottom: "10px" }}>Conditioning Spray</li>
                 <li style={{ paddingBottom: "10px" }}>Fluff Dry</li>
                 <li style={{ paddingBottom: "10px" }}>Brush Out</li>
                 <li style={{ paddingBottom: "10px" }}>Nail Trim and Dremel</li>
-                <li style={{ paddingBottom: "10px" }}>Pad, Face, and Body Area Trim</li>
-                <li style={{ paddingBottom: "10px" }}>Gland Expression</li>
+                <li style={{ paddingBottom: "10px" }}>Pad, Face, and Potty Area Trim</li>
+                <li style={{ paddingBottom: "10px" }}>Gland Expression (Upon Request)</li>
                 <li style={{ paddingBottom: "10px" }}>Nail Trim and Dremel</li>
                 <li style={{ paddingBottom: "10px" }}>Ear Cleaning (Upon Request)</li>
                 <li style={{ paddingBottom: "10px" }}>Lots of Cuddles</li>
               </ul>
+            </div>
+          </div>
+
+          <div style={{ width: "90%", border: "1.5px solid #1d1d1d", borderRadius: "10px", backgroundColor: "#FFF", margin: "0 auto", boxShadow: "-4px 12px 32px -3px rgba(0,0,0,0.75)" }}>
+            <div style={{ padding: "20px 0px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", textAlign: "center"}}>
+              <div style={{ textDecorationLine: "underline" }}>Breed</div>
+              <div style={{ textDecorationLine: "underline" }}>Bath & Brush</div>
+              <div style={{ textDecorationLine: "underline" }}>Full Service Groom</div>
+            </div>
+
+            <div>
+              <div>
+                <div>Breed</div>
+                <div></div>
+              </div>
             </div>
           </div>
         </div>

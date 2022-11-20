@@ -5,7 +5,7 @@ import ZukiesGarageLogo from '../../Images/Logos/ZukiesGarage_logo.jpg'
 
 const Navbar = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", letterSpacing: "0.75px", lineHeight: "25px" }}>
+    <div style={{ backgroundColor: "#FFF", display: "flex", flexDirection: "column", alignItems: "center", letterSpacing: "0.75px", lineHeight: "25px" }}>
       <div style={{ paddingTop: "20px", display: "grid", gridTemplateColumns: "0.25fr 0.50fr 0.25fr", margin: "0px 5%", width: "90%" }}>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div style={{ paddingLeft: "10px", fontSize: "20px", transform: "rotate(135deg)" }}>
@@ -41,27 +41,27 @@ const Navbar = () => {
             <FontAwesomeIcon icon={['fas', 'home']} />
           </div>
 
-          <div style={{ paddingTop: "10px", fontSize: "14px" }}>
+          <div style={{ fontSize: "14px" }}>
             Home 
           </div>
         </NavLink>
 
-        <NavLink to="/schedule-an-appointment" style={{ width: "100px", cursor: "pointer" }}>
+        <a target="_blank" href="https://booking.moego.pet/go/?name=ZukiesGarage" style={{ width: "100px", cursor: "pointer" }}>
           <div style={{ fontSize: "20px" }}>
             <FontAwesomeIcon icon={['far', 'calendar-check']} />
           </div>
 
-          <div style={{ paddingTop: "10px", fontSize: "14px" }}>
+          <div style={{ fontSize: "14px" }}>
             Book us 
           </div>
-        </NavLink>
+        </a>
 
         <NavLink to="/pricing" style={{ width: "100px", cursor: "pointer" }}>
           <div style={{ fontSize: "20px" }}>
             <FontAwesomeIcon icon={['fas', 'tag']} />
           </div>
 
-          <div style={{ paddingTop: "10px", fontSize: "14px" }}>
+          <div style={{ fontSize: "14px" }}>
             Pricing 
           </div>
         </NavLink>
@@ -71,7 +71,7 @@ const Navbar = () => {
             <FontAwesomeIcon icon={['fas', 'id-card']} />
           </div>
 
-          <div style={{ paddingTop: "10px", fontSize: "14px" }}>
+          <div style={{ fontSize: "14px" }}>
             Our team 
           </div>
         </NavLink>
@@ -81,7 +81,7 @@ const Navbar = () => {
             <FontAwesomeIcon icon={['fas', 'images']} />
           </div>
 
-          <div style={{ paddingTop: "10px", fontSize: "14px" }}>
+          <div style={{ fontSize: "14px" }}>
             Photo gallery 
           </div>
         </NavLink>

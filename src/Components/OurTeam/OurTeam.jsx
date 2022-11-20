@@ -38,9 +38,12 @@ const OurTeam = () => {
               </div>
 
               <div style={{ letterSpacing: "1px", lineHeight: "25px", "-webkit-font-smoothing": "subpixel-antialiased" }}>
+                <div style={{ paddingBottom: "20px", borderBottom: "1.5px solid #1d1d1d" }}>
+                  Sammi Jo Roberts
+                </div>
+
                 <div style={{ paddingBottom: "20px" }}>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates iure eum modi. Odit repellendus molestiae sequi modi, commodi quidem fugiat itaque sint officiis, explicabo necessitatibus quia veritatis, harum magnam quasi.
-                  Pariatur vel illo, maxime aliquam beatae eveniet vitae voluptas odit reiciendis molestiae neque, facere iusto cumque nulla libero. Corporis vel ipsam dolorum totam doloremque architecto molestiae numquam neque reprehenderit quo.
+                  I have been grooming since 2010, but I have been working in the dog industry for much longer! I started right out of high school working as a kennel technician at a local vets office and continued to work my way through many positions learning as much as I could about animals. I found my passion for grooming and started my business to serve the people and pets of my community. I truly love and appreciate everyone of my clients and I'm so happy that you have given me your trust for your pets grooming needs! 
                 </div>
               </div>
             </div>

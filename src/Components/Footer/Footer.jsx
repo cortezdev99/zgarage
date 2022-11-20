@@ -4,7 +4,7 @@ import ZukiesGarageLogo from '../../Images/Logos/ZukiesGarage_logo.jpg'
 
 const Footer = () => {
   return (
-    <div style={{ padding: "40px", display: "grid", gridTemplateColumns: "1fr", rowGap: "40px", justifyItems: "center" }}>
+    <div style={{ backgroundColor: "#FFF", padding: "40px", display: "grid", gridTemplateColumns: "1fr", rowGap: "40px", justifyItems: "center" }}>
       <div style={{ width: "100%", maxWidth: "150px" }}>
         <img style={{ width: "100%", display: "flex" }} src={ZukiesGarageLogo} />
       </div>
@@ -44,10 +44,6 @@ const Footer = () => {
       <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
         <div style={{ fontSize: "24px", marginRight: "40px", cursor: "pointer" }}>
           <FontAwesomeIcon icon={['fab', 'facebook-square']} />
-        </div>
-
-        <div style={{ fontSize: "24px", cursor: "pointer" }}>
-          <FontAwesomeIcon icon={['fab', 'instagram']} />
         </div>
       </div>
 
