@@ -2,8 +2,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import PricingHeading from '../../Images/Pricing/pricing-header-image.jpg'
 import MouseTrap from "../../Images/Homepage/mousetrap.jpg"
+import { useCollection } from 'react-firebase-hooks/firestore'
+import  { collection, getDocs, getFirestore } from 'firebase/firestore'
+import { useEffect } from 'react';
+import { db } from '../Config/firebase';
 
 const Pricing = () => {
+  const [value, loading, error] = useCollection(
+    collection(db, 'pricing'),
+    {
+      snapshotListenOptions: { includeMetadataChanges: true },
+    }
+  );
+
   return (
     <div>
       <div>
@@ -84,10 +95,16 @@ const Pricing = () => {
             </div>
 
             <div>
-              <div>
-                <div>Breed</div>
-                <div></div>
-              </div>
+              {
+                value && value.forEach((doc) => {
+                  console.log(doc.data())
+                  return (
+                    <div>
+                      yo
+                    </div>
+                  )
+                })
+              }
             </div>
           </div>
         </div>
