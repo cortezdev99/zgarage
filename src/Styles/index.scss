@@ -73,3 +73,21 @@ code {
     grid-column: span 1;
   }
 }
+
+.login-form-input {
+  border: 2.5px solid #e1e1e1;
+  background: #FFF;
+  text-decoration: none;
+  outline: none;
+  padding: 0px 20px;
+  width: calc(100% - 40px);
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+
+  &::placeholder {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.75px;  
+  }
+}

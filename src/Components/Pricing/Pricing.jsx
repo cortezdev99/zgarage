@@ -5,15 +5,17 @@ import MouseTrap from "../../Images/Homepage/mousetrap.jpg"
 import { useCollection } from 'react-firebase-hooks/firestore'
 import  { collection, getDocs, getFirestore } from 'firebase/firestore'
 import { useEffect } from 'react';
-import { db } from '../Config/firebase';
+import { auth, db } from '../Config/firebase';
 
 const Pricing = () => {
-  const [value, loading, error] = useCollection(
+  const [pricingList, loading, error] = useCollection(
     collection(db, 'pricing'),
     {
       snapshotListenOptions: { includeMetadataChanges: true },
     }
   );
+
+
 
   return (
     <div>
@@ -87,8 +89,11 @@ const Pricing = () => {
             </div>
           </div>
 
-          <div style={{ width: "90%", border: "1.5px solid #1d1d1d", borderRadius: "10px", backgroundColor: "#FFF", margin: "0 auto", boxShadow: "-4px 12px 32px -3px rgba(0,0,0,0.75)" }}>
-            <div style={{ padding: "20px 0px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", textAlign: "center"}}>
+          <div style={{ width: "90%", border: "2.5px solid #e1e1e1", borderLeft: "1.5px solid #e1e1e1", borderRight: "1.5px solid #e1e1e1", borderRadius: "10px", backgroundColor: "#FFF", margin: "40px auto", boxShadow: "#e1e1e1 0px 12px 10px 0px" }}>
+            <div style={{ padding: "20px 0px", display: "grid", gridTemplateColumns: `${auth.currentUser ? "1fr 1fr 1fr 1fr" : "1fr 1fr 1fr" }`, textAlign: "center"}}>
+              { auth.currentUser ? (
+                <div />
+              ) : null }
               <div style={{ textDecorationLine: "underline" }}>Breed</div>
               <div style={{ textDecorationLine: "underline" }}>Bath & Brush</div>
               <div style={{ textDecorationLine: "underline" }}>Full Service Groom</div>
@@ -96,11 +101,19 @@ const Pricing = () => {
 
             <div>
               {
-                value && value.forEach((doc) => {
-                  console.log(doc.data())
+                pricingList && pricingList.docs.map((price) => {
+                  const {
+                    breed,
+                    bathAndBrush,
+                    fullServiceGroom
+                  } = price.data();
+
+
                   return (
-                    <div>
-                      yo
+                    <div style={{ padding: "20px 0px", display: "grid", gridTemplateColumns: `${auth.currentUser ? "1fr 1fr 1fr 1fr" : "1fr 1fr 1fr" }`, textAlign: "center"}}>
+                      <div>{breed}</div>
+                      <div>{bathAndBrush}</div>
+                      <div>{fullServiceGroom}</div>
                     </div>
                   )
                 })
