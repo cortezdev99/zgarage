@@ -3,7 +3,7 @@ import React from 'react'
 import PricingHeading from '../../Images/Pricing/pricing-header-image.jpg'
 import MouseTrap from "../../Images/Homepage/mousetrap.jpg"
 import { useCollection } from 'react-firebase-hooks/firestore'
-import  { collection, getDocs, getFirestore } from 'firebase/firestore'
+import  { collection, doc, deleteDoc, updateDoc } from 'firebase/firestore'
 import { useEffect } from 'react';
 import { auth, db } from '../Config/firebase';
 
@@ -15,7 +15,15 @@ const Pricing = () => {
     }
   );
 
+  const handleToggleUpdateModal = (docToUpdate) => {
+    // const docRef = doc(db, 'pricing', docToUpdate);
+    // return updateDoc(docRef, data)
+  }
 
+  const handleDeletingPrice = (docToDelete) => {
+    const docRef = doc(db, 'pricing', docToDelete);
+    return deleteDoc(docRef);
+  }
 
   return (
     <div>
@@ -90,7 +98,7 @@ const Pricing = () => {
           </div>
 
           <div style={{ width: "90%", border: "2.5px solid #e1e1e1", borderLeft: "1.5px solid #e1e1e1", borderRight: "1.5px solid #e1e1e1", borderRadius: "10px", backgroundColor: "#FFF", margin: "40px auto", boxShadow: "#e1e1e1 0px 12px 10px 0px" }}>
-            <div style={{ padding: "20px 0px", display: "grid", gridTemplateColumns: `${auth.currentUser ? "1fr 1fr 1fr 1fr" : "1fr 1fr 1fr" }`, textAlign: "center"}}>
+            <div style={{ padding: "20px 5px", display: "grid", gridTemplateColumns: `${auth.currentUser ? "0.5fr 1fr 1fr 1fr" : "1fr 1fr 1fr" }`, textAlign: "center"}}>
               { auth.currentUser ? (
                 <div />
               ) : null }
@@ -107,10 +115,29 @@ const Pricing = () => {
                     bathAndBrush,
                     fullServiceGroom
                   } = price.data();
-
-
+                
                   return (
-                    <div style={{ padding: "20px 0px", display: "grid", gridTemplateColumns: `${auth.currentUser ? "1fr 1fr 1fr 1fr" : "1fr 1fr 1fr" }`, textAlign: "center"}}>
+                    <div style={{ padding: "20px 5px", display: "grid", gridTemplateColumns: `${auth.currentUser ? "0.5fr 1fr 1fr 1fr" : "1fr 1fr 1fr" }`, textAlign: "center"}}>
+                      {
+                        auth.currentUser ? (
+                          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-evenly", fontSize: "18px" }}>
+                            <div style={{ color: "#ff2424" }}>
+                              <FontAwesomeIcon
+                                style={{ cursor: "pointer" }} 
+                                icon={['fas', 'trash-alt']}
+                                onClick={() => handleDeletingPrice(price.id)}
+                              />
+                            </div>
+
+                            <div style={{ color: "#264a73" }}>
+                              <FontAwesomeIcon
+                                style={{ cursor: "pointer" }} 
+                                icon={['fas', 'pen-square']}
+                              />
+                            </div>             
+                          </div>
+                        ) : null
+                      }
                       <div>{breed}</div>
                       <div>{bathAndBrush}</div>
                       <div>{fullServiceGroom}</div>
@@ -127,56 +154,3 @@ const Pricing = () => {
 }
 
 export default Pricing;
-
-{/* <div style={{ display: "grid", gridTemplateColumns: "0.75fr 1.25fr", columnGap: "40px" }}>
-  <div style={{ marginTop: "20px" }}>
-    <img
-      src="https://via.placeholder.com/250x300"
-      style={{ 
-        width: "100%",
-        objectFit: "cover",
-        display: "flex"
-        }} 
-    />
-  </div>
-
-  <div style={{ marginTop: "40px", marginRight: "40px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-    <div
-      style={{ paddingBottom: "12px", width: "100%", textAlign: "center", fontSize: "18px", fontWeight: "600", letterSpacing: "0.75px", lineHeight: "25px", borderBottom: "2.5px solid #000" }}
-    >
-      Services and Pricing
-    </div>
-
-    <div style={{ lineHeight: "25px", letterSpacing: "0.75px", textAlign: "center", width: "100%", margin: "20px 20px 0px", display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: "20px" }}>
-        <div>
-          <div style={{ textDecorationLine: "underline", fontWeight: "600" }}>Full Service Groom</div>
-
-          <div style={{ fontSize: "14px" }}>
-            <div>High Quality Shampooing</div>
-            <div>Fluff Dry</div>
-            <div>Brush Out</div>
-            <div>Nail Trim and Dremel</div>
-            <div>Haircut</div>
-            <div>Gland Expression</div>
-            <div>Ear Cleaning (Upon Request)</div>
-            <div>Plenty of Love and Pets!</div>
-          </div>
-        </div>
-
-        <div>
-          <div style={{ textDecorationLine: "underline", fontWeight: "600" }}>Bath and Brush</div>
-
-          <div style={{ fontSize: "14px" }}>
-            <div>High Quality Shampooing</div>
-            <div>Fluff Dry</div>
-            <div>Brush Out</div>
-            <div>Nail Trim and Dremel</div>
-            <div>Pad, Face, and Body Area Trim</div>
-            <div>Gland Expression</div>
-            <div>Ear Cleaning (Upon Request)</div>
-            <div>Lots of Cuddles!</div>
-          </div>
-        </div>
-    </div>
-  </div>
-</div> */}

@@ -6,7 +6,10 @@ import {
   faImages,
   faPaw,
   faPhone,
-  faMapPin
+  faMapPin,
+  faPenSquare,
+  faTrashAlt,
+  faPlus
 } from "@fortawesome/free-solid-svg-icons";
 
 // far icons
@@ -33,7 +36,10 @@ const Icons = () => {
      faPhone,
      faMapPin,
      faFacebookSquare,
-     faInstagram
+     faInstagram,
+     faPenSquare,
+     faTrashAlt,
+     faPlus
   );
 };
 
