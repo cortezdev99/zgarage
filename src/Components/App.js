@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PricingContext from "../Contexts/PricingContext";
+import PricingProvider from "../Providers/PricingProvider";
 import "../Styles/index.scss";
 import Footer from "./Footer/Footer";
 import Homepage from "./Home/Homepage";
@@ -25,7 +27,15 @@ const App = () => {
             path="/schedule-an-appointment"
             element={<ScheduleAppointment />}
           />
-          <Route exact path="/pricing" element={<Pricing />} />
+          <Route
+            exact
+            path="/pricing"
+            element={
+              <PricingProvider>
+                <Pricing />
+              </PricingProvider>
+            }
+          />
           <Route exact path="/our-team" element={<OurTeam />} />
           <Route exact path="/photo-gallery" element={<PhotoGallery />} />
           <Route exact path="/login" element={<Login />} />

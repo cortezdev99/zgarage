@@ -6,6 +6,8 @@ import { useCollection } from 'react-firebase-hooks/firestore'
 import  { collection, doc, deleteDoc, updateDoc } from 'firebase/firestore'
 import { useEffect } from 'react';
 import { auth, db } from '../Config/firebase';
+import { useContext } from 'react';
+import PricingContext from '../../Contexts/PricingContext';
 
 const Pricing = () => {
   const [pricingList, loading, error] = useCollection(
@@ -15,7 +17,13 @@ const Pricing = () => {
     }
   );
 
+  const {
+    setIsModalOpen
+  } = useContext(PricingContext);
+
   const handleToggleUpdateModal = (docToUpdate) => {
+    setIsModalOpen(true);
+    // setIsModalOpen(true);
     // const docRef = doc(db, 'pricing', docToUpdate);
     // return updateDoc(docRef, data)
   }
@@ -133,6 +141,7 @@ const Pricing = () => {
                               <FontAwesomeIcon
                                 style={{ cursor: "pointer" }} 
                                 icon={['fas', 'pen-square']}
+                                onClick={() => handleToggleUpdateModal(price.id)}
                               />
                             </div>             
                           </div>
