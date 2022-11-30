@@ -91,3 +91,7 @@ code {
     letter-spacing: 0.75px;  
   }
 }
+
+.modal-open-disable-body-scroll {
+  overflow-y: hidden;
+}

@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { auth, db } from '../Config/firebase';
 import { useContext } from 'react';
 import PricingContext from '../../Contexts/PricingContext';
+import PricingModal from './PricingModal';
 
 const Pricing = () => {
   const [pricingList, loading, error] = useCollection(
@@ -21,11 +22,14 @@ const Pricing = () => {
     setIsModalOpen
   } = useContext(PricingContext);
 
-  const handleToggleUpdateModal = (docToUpdate) => {
-    setIsModalOpen(true);
-    // setIsModalOpen(true);
-    // const docRef = doc(db, 'pricing', docToUpdate);
-    // return updateDoc(docRef, data)
+  const handleOpeningModal = (docToUpdate) => {
+    const bodyElem = document.getElementById("body");
+
+    bodyElem.classList.add("modal-open-disable-body-scroll")
+    
+    setTimeout(() => {
+      return setIsModalOpen(true);
+    }, 500)
   }
 
   const handleDeletingPrice = (docToDelete) => {
@@ -141,7 +145,7 @@ const Pricing = () => {
                               <FontAwesomeIcon
                                 style={{ cursor: "pointer" }} 
                                 icon={['fas', 'pen-square']}
-                                onClick={() => handleToggleUpdateModal(price.id)}
+                                onClick={() => handleOpeningModal(price.id)}
                               />
                             </div>             
                           </div>
@@ -158,6 +162,12 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+
+      {
+        auth.currentUser ? (
+          <PricingModal />
+        ) : null
+      }
     </div>
   )
 }
