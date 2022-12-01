@@ -51,6 +51,9 @@ const PricingModal = () => {
   }, [loadingSubmission])
 
   const handleClosingModal = () => {
+    setBreed("");
+    setBathAndBrush("");
+    setFullServiceGroom("");
     setLoadingSubmission(false);
     setDocToUpdate();
     setIsEditing(false);
@@ -76,6 +79,8 @@ const PricingModal = () => {
       updateDoc(docRef, data).then(() => {
         return handleClosingModal();
       }).catch((err) => {
+
+        // TODO ERROR HANDLING
         console.log(err)
       })
     }
@@ -85,6 +90,8 @@ const PricingModal = () => {
     addDoc(collectionRef, data).then(() => {
       return handleClosingModal();
     }).catch((err) => {
+
+      // TODO ERROR HANDLING
       console.log(err)
     })
   }
