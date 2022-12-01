@@ -7,7 +7,6 @@ import { db } from '../Config/firebase';
 import Loading from '../Utilities/Loading';
 
 const PricingModal = () => {
-  const [ loading, setLoading ] = useState(false);
   const [ breed, setBreed ] = useState("");
   const [ bathAndBrush, setBathAndBrush ] = useState("");
   const [ fullServiceGroom, setFullServiceGroom ] = useState("");
@@ -19,29 +18,30 @@ const PricingModal = () => {
     isEditing,
     setIsEditing,
     docToUpdate,
-    setDocToUpdate
+    setDocToUpdate,
+    loading,
+    setLoading
   } = useContext(PricingContext);
 
   useEffect(() => {
-    if (isEditing) {
-      setLoading(true);
+    if (isEditing && docToUpdate) {
+      const {
+        breed,
+        bathAndBrush,
+        fullServiceGroom
+      } = docToUpdate.data();
       
-      setTimeout(() => {
-        const {
-          breed,
-          bathAndBrush,
-          fullServiceGroom
-        } = docToUpdate.data();
-        
-        setBreed(breed);
-        setBathAndBrush(bathAndBrush);
-        setFullServiceGroom(fullServiceGroom);
-        
-        return setLoading(false);
-      }, 500)
+      setBreed(breed);
+      setBathAndBrush(bathAndBrush);
+      setFullServiceGroom(fullServiceGroom);
+      setLoading(false);
     }
-    
-    return;
+  }, [docToUpdate])
+
+  useEffect(() => {
+    if (!isEditing && isModalOpen) {
+      return setLoading(false);
+    }
   }, [ isEditing ])
 
   useEffect(() => {
@@ -83,17 +83,17 @@ const PricingModal = () => {
         // TODO ERROR HANDLING
         console.log(err)
       })
+    } else {
+      const collectionRef = collection(db, 'pricing');
+  
+      addDoc(collectionRef, data).then(() => {
+        return handleClosingModal();
+      }).catch((err) => {
+  
+        // TODO ERROR HANDLING
+        console.log(err)
+      })
     }
-
-    const collectionRef = collection(db, 'pricing');
-
-    addDoc(collectionRef, data).then(() => {
-      return handleClosingModal();
-    }).catch((err) => {
-
-      // TODO ERROR HANDLING
-      console.log(err)
-    })
   }
 
   if (isModalOpen) {

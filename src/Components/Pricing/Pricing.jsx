@@ -21,7 +21,8 @@ const Pricing = () => {
   const {
     setIsModalOpen,
     setIsEditing,
-    setDocToUpdate
+    setDocToUpdate,
+    setLoading
   } = useContext(PricingContext);
 
   const handleOpeningModal = (docToUpdate) => {
@@ -30,11 +31,10 @@ const Pricing = () => {
     bodyElem.classList.add("modal-open-disable-body-scroll")
 
     if (docToUpdate !== "NEW_DOC") {
-      setTimeout(() => {
-        setDocToUpdate(docToUpdate);
-        setIsEditing(true);
-        return setIsModalOpen(true);
-      }, 500)
+      setLoading(true);
+      setIsEditing(true);
+      setDocToUpdate(docToUpdate);
+      return setIsModalOpen(true);
     }
 
     return setIsModalOpen(true);
@@ -61,7 +61,7 @@ const Pricing = () => {
             </div>
 
             <div>
-              Pricing and Services
+              Services
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", columnGap: "5px", paddingLeft: "10px" }}>
@@ -114,6 +114,24 @@ const Pricing = () => {
                 <li style={{ paddingBottom: "10px" }}>Ear Cleaning (Upon Request)</li>
                 <li style={{ paddingBottom: "10px" }}>Lots of Cuddles</li>
               </ul>
+            </div>
+          </div>
+
+          <div style={{ marginTop: "40px", textAlign: "center", paddingBottom: "10px", textTransform: "uppercase", letterSpacing: "0.75px", fontSize: "18px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", columnGap: "5px", paddingRight: "10px" }}>
+              <span style={{ transform: "rotate(315deg)" }}><FontAwesomeIcon icon={['fas', 'paw']} /></span>
+              <span style={{ position: "relative", top: "-15px" }}><FontAwesomeIcon icon={['fas', 'paw']} /></span>
+              <span style={{ transform: "rotate(45deg)" }}><FontAwesomeIcon icon={['fas', 'paw']} /></span>
+            </div>
+
+            <div>
+              Pricing
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", columnGap: "5px", paddingLeft: "10px" }}>
+              <span style={{ transform: "rotate(315deg)" }}><FontAwesomeIcon icon={['fas', 'paw']} /></span>
+              <span style={{ position: "relative", top: "-15px" }}><FontAwesomeIcon icon={['fas', 'paw']} /></span>
+              <span style={{ transform: "rotate(45deg)" }}><FontAwesomeIcon icon={['fas', 'paw']} /></span>
             </div>
           </div>
 

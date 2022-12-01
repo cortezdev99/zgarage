@@ -5,6 +5,7 @@ const PricingProvider = (props) => {
   const [ isModalOpen, setIsModalOpen ] = useState(false);
   const [ isEditing, setIsEditing ] = useState(false);
   const [ docToUpdate, setDocToUpdate ] = useState();
+  const [ loading, setLoading ] = useState(false);
 
   const state = {
     isModalOpen,
@@ -12,7 +13,9 @@ const PricingProvider = (props) => {
     isEditing,
     setIsEditing,
     docToUpdate,
-    setDocToUpdate
+    setDocToUpdate,
+    loading,
+    setLoading
   }
 
   return (
