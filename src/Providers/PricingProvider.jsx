@@ -4,7 +4,7 @@ import PricingContext from '../Contexts/PricingContext';
 const PricingProvider = (props) => {
   const [ isModalOpen, setIsModalOpen ] = useState(false);
   const [ isEditing, setIsEditing ] = useState(false);
-  const [ docToUpdate, setDocToUpdate ] = useState(null);
+  const [ docToUpdate, setDocToUpdate ] = useState();
 
   const state = {
     isModalOpen,
