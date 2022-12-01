@@ -3,19 +3,16 @@ import PricingContext from '../Contexts/PricingContext';
 
 const PricingProvider = (props) => {
   const [ isModalOpen, setIsModalOpen ] = useState(false);
-  const [ breed, setBreed ] = useState("");
-  const [ bathAndBrushPrice, setBathAndBrushPrice ] = useState("");
-  const [ fullServiceGroomPrice, setFullServiceGroomPrice ] = useState("");
+  const [ isEditing, setIsEditing ] = useState(false);
+  const [ docToUpdate, setDocToUpdate ] = useState(null);
 
   const state = {
     isModalOpen,
     setIsModalOpen,
-    breed,
-    setBreed,
-    bathAndBrushPrice,
-    setBathAndBrushPrice,
-    fullServiceGroomPrice,
-    setFullServiceGroomPrice
+    isEditing,
+    setIsEditing,
+    docToUpdate,
+    setDocToUpdate
   }
 
   return (

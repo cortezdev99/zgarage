@@ -19,15 +19,19 @@ const Pricing = () => {
   );
 
   const {
-    setIsModalOpen
+    setIsModalOpen,
+    setIsEditing,
+    setDocToUpdate
   } = useContext(PricingContext);
 
   const handleOpeningModal = (docToUpdate) => {
     const bodyElem = document.getElementById("body");
 
     bodyElem.classList.add("modal-open-disable-body-scroll")
-    
+
     setTimeout(() => {
+      setDocToUpdate(docToUpdate);
+      setIsEditing(true);
       return setIsModalOpen(true);
     }, 500)
   }
@@ -145,7 +149,7 @@ const Pricing = () => {
                               <FontAwesomeIcon
                                 style={{ cursor: "pointer" }} 
                                 icon={['fas', 'pen-square']}
-                                onClick={() => handleOpeningModal(price.id)}
+                                onClick={() => handleOpeningModal(price)}
                               />
                             </div>             
                           </div>
