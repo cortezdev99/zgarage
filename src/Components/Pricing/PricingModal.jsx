@@ -1,14 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getDoc, setDoc, updateDoc, doc } from 'firebase/firestore';
 import React, { useState, useEffect } from 'react'
 import { useContext } from 'react';
 import PricingContext from '../../Contexts/PricingContext';
+import { db } from '../Config/firebase';
 import Loading from '../Utilities/Loading';
 
 const PricingModal = () => {
   const [ loading, setLoading ] = useState(false);
   const [ breed, setBreed ] = useState("");
-  const [ bathAndBrushPrice, setBathAndBrushPrice ] = useState("");
-  const [ fullServiceGroomPrice, setFullServiceGroomPrice ] = useState("");
+  const [ bathAndBrush, setBathAndBrush ] = useState("");
+  const [ fullServiceGroom, setFullServiceGroom ] = useState("");
+  const [ loadingSubmission, setLoadingSubmission ] = useState(false);
 
   const {
     isModalOpen,
@@ -29,13 +32,10 @@ const PricingModal = () => {
           bathAndBrush,
           fullServiceGroom
         } = docToUpdate.data();
-
-        console.log(bathAndBrush);
-        console.log(fullServiceGroom)
         
         setBreed(breed);
-        setBathAndBrushPrice(bathAndBrush);
-        setFullServiceGroomPrice(fullServiceGroom);
+        setBathAndBrush(bathAndBrush);
+        setFullServiceGroom(fullServiceGroom);
         
         return setLoading(false);
       }, 500)
@@ -44,18 +44,43 @@ const PricingModal = () => {
     return;
   }, [ isEditing ])
 
-  const handleClosingModal = () => {
-    if (isEditing) {
-      setDocToUpdate(null);
-      setIsEditing(false);
-      setIsModalOpen(false);
-
-      setTimeout(() => {
-        const bodyElem = document.getElementById("body");
-        
-        return bodyElem.classList.remove("modal-open-disable-body-scroll");
-      }, 500)
+  useEffect(() => {
+    if (loadingSubmission) {
+      handleSubmittingForm();
     }
+  }, [loadingSubmission])
+
+  const handleClosingModal = () => {
+    setLoadingSubmission(false);
+    setDocToUpdate();
+    setIsEditing(false);
+    setIsModalOpen(false);
+
+    setTimeout(() => {
+      const bodyElem = document.getElementById("body");
+      
+      return bodyElem.classList.remove("modal-open-disable-body-scroll");
+    }, 500)
+  }
+
+  const handleSubmittingForm = () => {
+    const data = {
+      breed,
+      bathAndBrush,
+      fullServiceGroom
+    }
+
+    if (isEditing) {
+      const docRef = doc(db, 'pricing', docToUpdate.id)
+
+      updateDoc(docRef, data).then(() => {
+        return handleClosingModal();
+      }).catch((err) => {
+        console.log(err)
+      })
+    }
+
+    return handleClosingModal();
   }
 
   if (isModalOpen) {
@@ -109,8 +134,8 @@ const PricingModal = () => {
                     <input 
                       id="bath-and-brush"
                       type="text" 
-                      value={bathAndBrushPrice}
-                      onChange={(e) => setBathAndBrushPrice(e.target.value)}
+                      value={bathAndBrush}
+                      onChange={(e) => setBathAndBrush(e.target.value)}
                       style={{ height: "40px", borderRadius: "5px", border: "2px solid #264a73", padding: "0px 20px" }}
                     />
                   </div>
@@ -121,15 +146,15 @@ const PricingModal = () => {
                     <input 
                       id="full-service-groom"
                       type="text"
-                      value={fullServiceGroomPrice}
-                      onChange={(e) => setFullServiceGroomPrice(e.target.value)}
+                      value={fullServiceGroom}
+                      onChange={(e) => setFullServiceGroom(e.target.value)}
                       style={{ height: "40px", borderRadius: "5px", border: "2px solid #264a73", padding: "0px 20px" }}
                     />
                   </div>
 
-                  <div>
-                    submit
-                  </div>
+                  <button onClick={() => setLoadingSubmission(true)} style={{ cursor: "pointer", minWidth: "150px", padding: "10px 20px", lineHeight: "25px", height: "40px", width: "60%", backgroundColor: "#264a73", color: "#FFF", borderRadius: "7.5px", border: "none", fontWeight: "600", margin: "5px auto", letterSpacing: "0.75px" }}>
+                    SUBMIT
+                  </button>
                 </div>
               </div>
             )
