@@ -47,9 +47,11 @@ const PricingModal = () => {
         setBathAndBrushPrice(bathAndBrushPrice);
         setFullServiceGroomPrice(fullServiceGroomPrice);
   
-        // return setLoading(false);
+        return setLoading(false);
       }, 500)
     }
+
+    return;
   }, [ isEditing ])
 
   if (isModalOpen) {
@@ -58,16 +60,24 @@ const PricingModal = () => {
         <div style={{ width: "80%", height: "70%", backgroundColor: "#FFF", borderRadius: "10px" }}>
           {
             loading ? (
-              <div>
-                <div>
-                  loading
+              <div style={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-evenly" }}>
+                <div style={{ fontSize: "24px", color: "#264a73", fontWeight: "600", letterSpacing: "0.75px" }}>
+                  Loading...
                 </div>
 
-                <Loading />
+                <div>
+                  <Loading />
+                </div>
               </div>
             ) : (
-              <div>
-                not loading...
+              <div style={{ overflowY: "auto" }}>
+                <div style={{ fontSize: "18px", padding: "20px", textAlign: "center", color: "#264a73", letterSpacing: "0.75px", fontWeight: "600", display: "flex", alignItems: "center", justifyContent: "center", lineHeight: "25px", position: "relative" }}>
+                  {
+                    isEditing ? "Edit Service" : "New Service"
+                  }
+
+                  <div style={{ fontSize: "20px", position: "absolute", top: "18px", right: "20px" }}>x</div>
+                </div>
               </div>
             )
           }

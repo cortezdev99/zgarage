@@ -9,7 +9,8 @@ import {
   faMapPin,
   faPenSquare,
   faTrashAlt,
-  faPlus
+  faPlus,
+  faXmark
 } from "@fortawesome/free-solid-svg-icons";
 
 // far icons
@@ -39,7 +40,8 @@ const Icons = () => {
      faInstagram,
      faPenSquare,
      faTrashAlt,
-     faPlus
+     faPlus,
+     faXmark
   );
 };
 
