@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { getDoc, setDoc, updateDoc, doc } from 'firebase/firestore';
+import { getDoc, setDoc, updateDoc, doc, addDoc, collection } from 'firebase/firestore';
 import React, { useState, useEffect } from 'react'
 import { useContext } from 'react';
 import PricingContext from '../../Contexts/PricingContext';
@@ -80,7 +80,13 @@ const PricingModal = () => {
       })
     }
 
-    return handleClosingModal();
+    const collectionRef = collection(db, 'pricing');
+
+    addDoc(collectionRef, data).then(() => {
+      return handleClosingModal();
+    }).catch((err) => {
+      console.log(err)
+    })
   }
 
   if (isModalOpen) {

@@ -29,11 +29,15 @@ const Pricing = () => {
 
     bodyElem.classList.add("modal-open-disable-body-scroll")
 
-    setTimeout(() => {
-      setDocToUpdate(docToUpdate);
-      setIsEditing(true);
-      return setIsModalOpen(true);
-    }, 500)
+    if (docToUpdate !== "NEW_DOC") {
+      setTimeout(() => {
+        setDocToUpdate(docToUpdate);
+        setIsEditing(true);
+        return setIsModalOpen(true);
+      }, 500)
+    }
+
+    return setIsModalOpen(true);
   }
 
   const handleDeletingPrice = (docToDelete) => {
@@ -116,7 +120,9 @@ const Pricing = () => {
           <div style={{ width: "90%", border: "2.5px solid #e1e1e1", borderLeft: "1.5px solid #e1e1e1", borderRight: "1.5px solid #e1e1e1", borderRadius: "10px", backgroundColor: "#FFF", margin: "40px auto", boxShadow: "#e1e1e1 0px 12px 10px 0px" }}>
             <div style={{ padding: "20px 5px", display: "grid", gridTemplateColumns: `${auth.currentUser ? "0.5fr 1fr 1fr 1fr" : "1fr 1fr 1fr" }`, textAlign: "center"}}>
               { auth.currentUser ? (
-                <div />
+                <div onClick={() => handleOpeningModal("NEW_DOC")} style={{ fontSize: "18px", fontWeight: "600", color: "#264a73", cursor: "pointer" }}>
+                  <FontAwesomeIcon icon={['fas', 'plus']} />
+                </div>
               ) : null }
               <div style={{ textDecorationLine: "underline" }}>Breed</div>
               <div style={{ textDecorationLine: "underline" }}>Bath & Brush</div>
