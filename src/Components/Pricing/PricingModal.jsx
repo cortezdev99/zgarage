@@ -12,7 +12,7 @@ const PricingModal = () => {
   const [ fullServiceGroom, setFullServiceGroom ] = useState("");
   const [ loadingSubmission, setLoadingSubmission ] = useState(false);
   const [ error, setError ] = useState(false);
-  
+
   const {
     isModalOpen,
     setIsModalOpen,
@@ -63,10 +63,11 @@ const PricingModal = () => {
 
   const handleClosingModal = () => {
     // reset modal states, and provider states
+    setLoadingSubmission(false);
+    setError(false);
     setBreed("");
     setBathAndBrush("");
     setFullServiceGroom("");
-    setLoadingSubmission(false);
     setDocToUpdate();
     setIsEditing(false);
     setIsModalOpen(false);
@@ -83,7 +84,7 @@ const PricingModal = () => {
 
   const handleSubmittingForm = () => {
     // clear existing errors on submission
-    setError("");
+    setError(false);
 
     // prepare data being added to database
     const data = {
@@ -94,6 +95,9 @@ const PricingModal = () => {
 
     // make sure the form is filled out properly before submission
     if (breed.length === 0 || bathAndBrush.length === 0 || fullServiceGroom.length === 0) {
+      // resetting loading submission state
+      setLoadingSubmission(false);
+      
       // if not return user frienldy error message 
       return setError("One of the required parameters is missing. Fill out the form correctly and submit again.");
     }
@@ -108,6 +112,8 @@ const PricingModal = () => {
         // if successful close modal
         return handleClosingModal();
       }).catch((err) => {
+        // resetting loading submission state
+        setLoadingSubmission(false);
         // otherwise return user friendly error message
         return setError(err.message);
       })
@@ -120,6 +126,9 @@ const PricingModal = () => {
         // if successful close modal
         return handleClosingModal();
       }).catch((err) => {
+        // resetting loading submission state
+        setLoadingSubmission(false);
+
         // otherwise return user friendly error message
         return setError(err);
       })
@@ -204,7 +213,9 @@ const PricingModal = () => {
                   }
 
                   <button onClick={() => setLoadingSubmission(true)} style={{ cursor: "pointer", minWidth: "150px", padding: "10px 20px", lineHeight: "25px", height: "40px", width: "60%", backgroundColor: "#264a73", color: "#FFF", borderRadius: "7.5px", border: "none", fontWeight: "600", margin: "5px auto", letterSpacing: "0.75px" }}>
-                    SUBMIT
+                    {
+                      loadingSubmission ? "SUBMITTING..." : "SUBMIT"
+                    }
                   </button>
                 </div>
               </div>
