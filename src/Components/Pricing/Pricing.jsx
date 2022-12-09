@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import PricingHeading from '../../Images/Pricing/pricing-header-image.jpg'
 import MouseTrap from "../../Images/Homepage/mousetrap.jpg"
-import { useCollection } from 'react-firebase-hooks/firestore'
-import  { collection, doc, deleteDoc, updateDoc } from 'firebase/firestore'
+import { useCollection, useCollectionData } from 'react-firebase-hooks/firestore'
+import  { collection, doc, deleteDoc, orderBy, query } from 'firebase/firestore'
 import { useEffect } from 'react';
 import { auth, db } from '../Config/firebase';
 import { useContext } from 'react';
@@ -12,10 +12,10 @@ import PricingModal from './PricingModal';
 
 const Pricing = () => {
   const [pricingList, loading, error] = useCollection(
-    collection(db, 'pricing'),
-    {
-      snapshotListenOptions: { includeMetadataChanges: true },
-    }
+    query(
+      collection(db, 'pricing'),
+      orderBy("breed", "asc")
+    )
   );
 
   const {
@@ -149,7 +149,7 @@ const Pricing = () => {
 
             <div>
               {
-                pricingList && pricingList.docs.map((price) => {
+                pricingList && pricingList.docs.map((price, idx) => {
                   const {
                     breed,
                     bathAndBrush,
@@ -157,7 +157,7 @@ const Pricing = () => {
                   } = price.data();
                 
                   return (
-                    <div style={{ padding: "20px 5px", display: "grid", gridTemplateColumns: `${auth.currentUser ? "0.5fr 1fr 1fr 1fr" : "1fr 1fr 1fr" }`, textAlign: "center"}}>
+                    <div key={idx} style={{ padding: "20px 5px", display: "grid", gridTemplateColumns: `${auth.currentUser ? "0.5fr 1fr 1fr 1fr" : "1fr 1fr 1fr" }`, textAlign: "center"}}>
                       {
                         auth.currentUser ? (
                           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-evenly", fontSize: "18px" }}>
