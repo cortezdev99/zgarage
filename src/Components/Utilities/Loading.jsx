@@ -1,8 +1,11 @@
 import React from 'react'
 
-const Loading = () => {
+const Loading = (props) => {
+  const {
+    small
+  } = props;
   return (
-    <div className="loader" />
+    <div className={`loader ${small ? "loader-small" : ""}`} />
   )
 }
 

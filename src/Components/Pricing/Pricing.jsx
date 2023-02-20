@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
+import React, { useState } from 'react'
 import PricingHeading from '../../Images/Pricing/pricing-header-image.jpg'
 import MouseTrap from "../../Images/Homepage/mousetrap.jpg"
 import { useCollection, useCollectionData } from 'react-firebase-hooks/firestore'
@@ -9,9 +9,13 @@ import { auth, db } from '../Config/firebase';
 import { useContext } from 'react';
 import PricingContext from '../../Contexts/PricingContext';
 import PricingModal from './PricingModal';
+import wholeSomeDogImage from "../../Images/Other/wholesome-dog.png"
+import Loading from '../Utilities/Loading';
 
 const Pricing = () => {
-  const [pricingList, loading, error] = useCollection(
+  const [ search, setSearch ] = useState("");
+  const [ pricingList, setPricingList ] = useState();
+  const [pricingListData, loading, error] = useCollection(
     query(
       collection(db, 'pricing'),
       orderBy("breed", "asc")
@@ -44,6 +48,22 @@ const Pricing = () => {
     const docRef = doc(db, 'pricing', docToDelete);
     return deleteDoc(docRef);
   }
+
+  useEffect(() => {
+    if (pricingListData && search.length === 0) {
+      return setPricingList(pricingListData.docs);
+    } else if (search.length > 0) {
+      const filteredPricingListData = pricingListData.docs.filter((priceData) => {
+        const {
+          breed
+        } = priceData.data();
+
+        return breed.toLowerCase().includes(search.toLowerCase());
+      })
+
+      return setPricingList(filteredPricingListData);
+    }
+  }, [pricingListData, search])
 
   return (
     <div>
@@ -147,9 +167,41 @@ const Pricing = () => {
               <div style={{ textDecorationLine: "underline" }}>Full Service Groom</div>
             </div>
 
+            <div style={{ position: "relative" }}>
+              <input
+                style={{ 
+                  width: "calc(100% - 50px)",
+                  padding: "0px 20px",
+                  height: "40px",
+                  border: "none",
+                  margin: "0px 5px",
+                  backgroundColor: "#ececec70",
+                  borderRadius: "2.5px"
+                 }}
+                id="search-breed"
+                placeholder="Search by breed (Ex: doodle)"
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+
+              
+              {
+                search.length > 0 ? (
+                  <div onClick={() => setSearch("")} style={{ cursor: "pointer", position: "absolute", top: "11px", right: "25px", fontSize: "17px" }}>
+                    <FontAwesomeIcon icon={['fas', 'xmark']} />
+                  </div>
+                ) : (
+                  <label for="search-breed" style={{ cursor: "pointer", position: "absolute", top: "11px", right: "25px", fontSize: "17px" }}>
+                    <FontAwesomeIcon icon={['fas', 'magnifying-glass']} />
+                  </label>
+                )
+              }
+            </div>
+
             <div>
               {
-                pricingList && pricingList.docs.map((price, idx) => {
+                pricingList && !loading && pricingList.length > 0 ? pricingList.map((price, idx) => {
                   const {
                     breed,
                     bathAndBrush,
@@ -185,6 +237,35 @@ const Pricing = () => {
                     </div>
                   )
                 })
+                : loading ? (
+                  <div style={{ padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                    <div style={{ fontSize: "18px", paddingBottom: "10px" }}>
+                      Price List Loading
+                    </div>
+
+                    <div style={{ paddingBottom: "15px" }}>
+                      Loading content... Please wait...
+                    </div>
+
+                    <Loading small={true} />
+                  </div>
+                ) : (
+                  <div style={{ display: "flex" }}>
+                    <div style={{ width: "150px" }}>
+                      <img style={{ objectFit: "cover", width: "100%", height: "100%" }} src={wholeSomeDogImage} />
+                    </div>
+
+                    <div style={{ display: "flex", flex: "1", flexDirection: "column", justifyContent: "space-evenly", letterSpacing: "0.75px", padding: "0px 20px 0px 5px" }}>
+                      <div style={{ fontSize: "18px" }}>
+                        Uh-Oh
+                      </div>
+
+                      <div>
+                        It looks like we haven't added that breed yet. You can contact us <span style={{ textDecorationLine: "underline" }}>here</span>
+                      </div>
+                    </div>
+                  </div>
+                )
               }
             </div>
           </div>

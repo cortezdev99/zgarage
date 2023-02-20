@@ -3,7 +3,7 @@ import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../Config/firebase';
 import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import ConfusedDogImage from "../../Images/Other/confused-dog.png"
+import wholesomeDogImage from "../../Images/Other/wholesome-dog.png"
 
 const Login = () => {
   const [ email, setEmail ] = useState("");
@@ -58,7 +58,7 @@ const Login = () => {
         <div style={{ textAlign: "center" }}>
           <div style={{ maxWidth: "300px", margin: "0 auto" }}>
             <img
-              src={ConfusedDogImage}
+              src={wholesomeDogImage}
               style={{ width: "100%", objectFit: "cover" }}
             />
           </div>

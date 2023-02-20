@@ -10,7 +10,8 @@ import {
   faPenSquare,
   faTrashAlt,
   faPlus,
-  faXmark
+  faXmark,
+  faMagnifyingGlass
 } from "@fortawesome/free-solid-svg-icons";
 
 // far icons
@@ -41,7 +42,8 @@ const Icons = () => {
      faPenSquare,
      faTrashAlt,
      faPlus,
-     faXmark
+     faXmark,
+     faMagnifyingGlass
   );
 };
 
