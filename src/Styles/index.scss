@@ -117,3 +117,9 @@ code {
   border: 7.5px solid #f3f3f3;
   border-top: 7.5px solid #264a73;
 }
+
+
+// **** Footer ****
+
+@import url(Footer/FooterMainStyles.scss);
+@import url(Footer/FooterMediaQueries.scss);
