@@ -1,0 +1,108 @@
+.homepage-wrapper {
+  .homepage-home-hero-wrapper {
+    position: relative;
+
+    .homepage-home-hero-background {
+      height: 80vh;
+      background-image: url(../../Images/ProductionImagesOrganizeSoon/homepagehomehero.jpg);
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: brightness(50%);
+    }
+
+    .homepage-home-hero-content-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .homepage-home-hero-content-wrapper {
+        text-align: center;
+        font-size: 4vw;
+        letter-spacing: 0.75px;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        flex-direction: column;
+
+        .homepage-home-hero-content-header {
+          color: #FFF;
+          font-weight: 600;
+        }
+
+        .homepage-home-hero-content-subtext {
+          font-weight: 600;
+          font-size: 3vw;
+          margin-top: 20px;
+          color: #c9c9c9;
+        }
+      }
+    }
+  }
+
+  .homepage-company-info-container {
+    margin: 40px 5%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+
+    .homepage-company-info-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+
+      .homepage-company-info-text-wrapper {
+        text-align: center;
+        letter-spacing: 0.75px;
+        line-height: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .homepage-company-info-text-header {
+          padding-bottom: 10px;
+          border-bottom: 1.5px solid #1d1d1d;
+        }
+
+        .homepage-company-info-text {
+          text-align: center;
+          margin-top: 20px;
+        }
+      }
+
+      .homepage-company-info-image-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: 100%;
+
+        .homepage-company-info-image {
+          object-fit: cover;
+          width: 100%;
+          max-width: 300px;
+          border-radius: 5px;
+        }
+      }
+
+      .homepage-company-info-image-wrapper-flipped {
+        justify-content: start;
+      }
+    }
+  }
+
+  .homepage-google-map-wrapper {
+    width: 100%;
+    
+    .homepage-google-map {
+      border: 0px;
+      width: 100%;
+    }
+  }
+}

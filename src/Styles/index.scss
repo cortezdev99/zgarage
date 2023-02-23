@@ -15,32 +15,6 @@ code {
     monospace;
 }
 
-
-.homepage-home-hero-wrapper {
-  position: relative
-}
-
-.homepage-home-hero {
-  height: 80vh;
-  background-image: url(../Images/ProductionImagesOrganizeSoon/homepagehomehero.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: brightness(50%);
-}
-
-.homepage-home-hero-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .gallery-grid-container {
   max-width: 1350px;
   margin: 0 auto;
@@ -118,8 +92,12 @@ code {
   border-top: 7.5px solid #264a73;
 }
 
+// **** Homepage ****
+
+@import url(Homepage/homepageMainStyles.scss);
+@import url(Homepage/homepageMediaQueries.scss);
 
 // **** Footer ****
 
-@import url(Footer/FooterMainStyles.scss);
-@import url(Footer/FooterMediaQueries.scss);
+@import url(Footer/footerMainStyles.scss);
+@import url(Footer/footerMediaQueries.scss);
