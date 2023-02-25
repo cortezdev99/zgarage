@@ -54,16 +54,15 @@ const Login = () => {
 
   if (signedIn) {
     return (
-      <div className="login-already-signed-in-wrapper" style={{ textAlign: "center", padding: "0px 40px 40px", minHeight: "50vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div className="login-already-signed-in-image-wrapper" style={{ maxWidth: "300px", margin: "0 auto" }}>
+      <div className="login-already-signed-in-wrapper">
+        <div className="login-already-signed-in-image-wrapper">
           <img
             className="login-already-signed-in-image"
             src={wholesomeDogImage}
-            style={{ width: "100%", objectFit: "cover" }}
           />
         </div>
 
-        <div className="login-already-signed-in-content" style={{ fontSize: "18px", fontWeight: "600", letterSpacing: "0.75px", color: "#264a73", letterSpacing: "0.75px", lineHeight: "25px" }}>
+        <div className="login-already-signed-in-content">
           <div className="login-already-signed-in-content-header">
             You're signed in! 
           </div>
@@ -77,12 +76,12 @@ const Login = () => {
   }
 
   return (
-    <div className="login-wrapper" style={{ padding: "40px" }}>
-      <div className="login-header" style={{ paddingBottom: "10px", color: "#264a73", fontWeight: "600", margin: "0 auto", width: "20%", minWidth: "120px", fontSize: "22px", textAlign: "center" , padding: "0px 20px", borderBottom: "1.5px solid #1d1d1d" }}>
+    <div className="login-wrapper">
+      <div className="login-header">
         Login
       </div>
 
-      <div className="login-form-wrapper" style={{ marginTop: "40px" }}>
+      <div className="login-form-wrapper">
         <div className="login-form-input-wrapper">
           <input
             type="text"
@@ -93,7 +92,7 @@ const Login = () => {
           />
         </div>
 
-        <div style={{ paddingTop: "20px" }}>
+        <div className="login-form-input-wrapper">
           <input
             type="text"
             placeholder="PASSWORD"
@@ -105,7 +104,7 @@ const Login = () => {
 
         {
           error ? (
-            <div className="login-form-error" style={{ marginTop: "40px", color: "#ff2424", textAlign: "center", textTransform: "uppercase", fontSize: "14px", fontWeight: "600" }}>
+            <div className="login-form-error">
               {error}
             </div>
           ) : null
@@ -114,21 +113,6 @@ const Login = () => {
         <button 
           onClick={() => loading ? null : setLoading(true) }
           className="login-form-btn"
-          style={{
-            width: "60%",
-            margin: "0 auto",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "#264a73",
-            border: "2.5px solid #264a73",
-            color: "#FFF",
-            fontWeight: "600",
-            marginTop: "40px",
-            height: "40px",
-            borderRadius: "5px",
-            cursor: "pointer"
-          }}
         >
           SUBMIT
         </button>
