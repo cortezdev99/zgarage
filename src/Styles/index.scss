@@ -49,24 +49,6 @@ code {
   }
 }
 
-.login-form-input {
-  border: 2.5px solid #e1e1e1;
-  background: #FFF;
-  text-decoration: none;
-  outline: none;
-  padding: 0px 20px;
-  width: calc(100% - 40px);
-  height: 40px;
-  border-radius: 5px;
-  text-align: center;
-
-  &::placeholder {
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 0.75px;  
-  }
-}
-
 .modal-open-disable-body-scroll {
   overflow-y: hidden;
 }
@@ -97,7 +79,17 @@ code {
 @import url(Homepage/homepageMainStyles.scss);
 @import url(Homepage/homepageMediaQueries.scss);
 
+// **** Navbar ****
+
+@import url(Navbar/navbarMainStyles.scss);
+@import url(Navbar/navbarMediaQueries.scss);
+
 // **** Footer ****
 
 @import url(Footer/footerMainStyles.scss);
 @import url(Footer/footerMediaQueries.scss);
+
+// **** Login ****
+
+@import url(Login/loginMainStyles.scss);
+@import url(Login/loginMediaQueries.scss);

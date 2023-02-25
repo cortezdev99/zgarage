@@ -1,0 +1,103 @@
+.login-already-signed-in-wrapper {
+  text-align: center;
+  padding: 0px 40px 40px;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .login-already-signed-in-image-wrapper {
+    max-width: 300px;
+    margin: 0 auto;
+
+    .login-already-signed-in-image {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .login-already-signed-in-content {
+    letter-spacing: 0.75px;
+    color: #264a73;
+    line-height: 25px;
+
+    .login-already-signed-in-content-header {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .login-already-signed-in-content-subtext {
+      font-size: 15px;
+    }
+  }
+}
+
+.login-wrapper {
+  padding: 40px;
+
+  .login-header {
+    padding-bottom: 10px;
+    color: #264a73;
+    font-weight: 600;
+    margin: 0 auto;
+    width: 20%;
+    min-width: 120px;
+    font-size: 22px;
+    text-align: center;
+    padding: 0px 20px;
+    border-bottom: 1.5px solid #1d1d1d;
+  }
+
+  .login-form-wrapper {
+    margin-top: 40px;
+
+    .login-form-input-wrapper {
+      &:not(:first-child) {
+        padding-top: 20px;
+      }
+
+      .login-form-input {
+        border: 2.5px solid #e1e1e1;
+        background: #FFF;
+        text-decoration: none;
+        outline: none;
+        padding: 0px 20px;
+        width: calc(100% - 40px);
+        height: 40px;
+        border-radius: 5px;
+        text-align: center;
+      
+        &::placeholder {
+          text-align: center;
+          font-weight: 600;
+          letter-spacing: 0.75px;  
+        }
+      }
+    }
+
+    .login-form-error {
+      margin-top: 40px;
+      color: #ff2424;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .login-form-btn {
+      width: 60%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #264a73;
+      border: 2.5px solid #264a73;
+      color: #FFF;
+      font-weight: 600;
+      margin-top: 40px;
+      height: 40px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}

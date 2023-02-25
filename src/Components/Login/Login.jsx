@@ -54,23 +54,22 @@ const Login = () => {
 
   if (signedIn) {
     return (
-      <div style={{ padding: "0px 40px 40px", minHeight: "50vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ textAlign: "center" }}>
-          <div style={{ maxWidth: "300px", margin: "0 auto" }}>
-            <img
-              src={wholesomeDogImage}
-              style={{ width: "100%", objectFit: "cover" }}
-            />
+      <div className="login-already-signed-in-wrapper" style={{ textAlign: "center", padding: "0px 40px 40px", minHeight: "50vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div className="login-already-signed-in-image-wrapper" style={{ maxWidth: "300px", margin: "0 auto" }}>
+          <img
+            className="login-already-signed-in-image"
+            src={wholesomeDogImage}
+            style={{ width: "100%", objectFit: "cover" }}
+          />
+        </div>
+
+        <div className="login-already-signed-in-content" style={{ fontSize: "18px", fontWeight: "600", letterSpacing: "0.75px", color: "#264a73", letterSpacing: "0.75px", lineHeight: "25px" }}>
+          <div className="login-already-signed-in-content-header">
+            You're signed in! 
           </div>
 
-          <div style={{ fontSize: "18px", fontWeight: "600", letterSpacing: "0.75px", color: "#264a73", letterSpacing: "0.75px", lineHeight: "25px" }}>
-            <div>
-              You're signed in! 
-            </div>
-
-            <div>
-              Admin panels, and admin only access restrictions have been lifted. 
-            </div>
+          <div className="login-already-signed-in-content-subtext">
+            Admin panels, and admin only access restrictions have been lifted. 
           </div>
         </div>
       </div>
@@ -78,13 +77,13 @@ const Login = () => {
   }
 
   return (
-    <div style={{ padding: "40px" }}>
-      <div style={{ paddingBottom: "10px", color: "#264a73", fontWeight: "600", margin: "0 auto", width: "20%", minWidth: "120px", fontSize: "22px", textAlign: "center" , padding: "0px 20px", borderBottom: "1.5px solid #1d1d1d" }}>
+    <div className="login-wrapper" style={{ padding: "40px" }}>
+      <div className="login-header" style={{ paddingBottom: "10px", color: "#264a73", fontWeight: "600", margin: "0 auto", width: "20%", minWidth: "120px", fontSize: "22px", textAlign: "center" , padding: "0px 20px", borderBottom: "1.5px solid #1d1d1d" }}>
         Login
       </div>
 
-      <div style={{ marginTop: "40px" }}>
-        <div>
+      <div className="login-form-wrapper" style={{ marginTop: "40px" }}>
+        <div className="login-form-input-wrapper">
           <input
             type="text"
             placeholder="EMAIL"
@@ -106,7 +105,7 @@ const Login = () => {
 
         {
           error ? (
-            <div style={{ marginTop: "40px", color: "#ff2424", textAlign: "center", textTransform: "uppercase", fontSize: "14px", fontWeight: "600" }}>
+            <div className="login-form-error" style={{ marginTop: "40px", color: "#ff2424", textAlign: "center", textTransform: "uppercase", fontSize: "14px", fontWeight: "600" }}>
               {error}
             </div>
           ) : null
@@ -114,6 +113,7 @@ const Login = () => {
 
         <button 
           onClick={() => loading ? null : setLoading(true) }
+          className="login-form-btn"
           style={{
             width: "60%",
             margin: "0 auto",
