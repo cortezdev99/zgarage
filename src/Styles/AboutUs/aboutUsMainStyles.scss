@@ -1,0 +1,349 @@
+@import "../VarsAndMixins/colors.scss";
+
+.about-us-wrapper {
+  padding-top: 40px;
+  overflow: hidden;
+
+  .about-page-intro-wrapper {
+    padding: 40px;
+    margin-top: 80px;
+    padding-top: 0px;
+    display: grid;
+    gap: 20px;
+
+    .about-page-intro {
+      font-size: 28px;
+      color: $secondary;
+      font-weight: 600;
+    }
+
+    .about-page-intro-book-now-action-btn {
+      height: 40px;
+      background-color: $secondary;
+      color: $white;
+      font-weight: 600;
+      width: 20%;
+      min-width: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+
+  // *** Our Culture ***
+
+  .about-page-our-culture-container {
+    margin-top: 80px;
+    background-color: $secondary-off-white;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      left: 0;
+      top: -99px;
+      position: absolute;
+      width: 100%;
+      height: 100px;
+      background-color: $secondary-off-white;
+      -webkit-mask-position: top;
+      mask-position: top;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      transform: scaleY(-1);
+      -webkit-mask-image: url(../../Images/Design/bubble.svg);
+      mask-image: url(../../Images/Design/bubble.svg);
+      pointer-events: none;
+    }
+
+    .about-page-our-culture-header {
+      font-size: 28px;
+      font-weight: 600;
+      color: $dark;
+      padding: 40px;
+    }
+
+    .about-page-our-culture-wrapper {
+      padding: 40px;
+      padding-top: 0px;
+
+      .about-page-our-culture-items-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+
+        .about-page-our-culture-item-wrapper {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 70px;
+          gap: 20px;
+          align-items: flex-start;
+
+          .about-page-our-culture-item-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: $secondary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            .about-page-our-culture-item-icon {
+              object-fit: cover;
+              width: 100%;
+            }
+
+            .about-page-our-culture-item-icon-smiley {
+              object-position: 0px -4px;
+            }
+
+            .about-page-our-culture-item-icon-quality {
+              width: 90%;
+            }
+
+            .about-page-our-culture-item-icon-eco {
+              width: 90%;
+            }
+
+            .about-page-our-culture-item-icon-outdoors {
+              width: 120%;
+            }
+          }
+
+          .about-page-our-culture-item-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: $dark;
+            line-height: 25px;
+          }
+
+          .about-page-our-culture-item-text {
+            color: $dark;
+            line-height: 25px;
+          }
+        }
+      }
+
+      .about-page-our-culture-image-wrapper {
+        width: 100%;
+        
+        .about-page-our-culture-image {
+          object-fit: cover;
+          width: 100%;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+
+  // *** About Page Hero Section ***
+
+  .about-page-hero-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 80vh;
+  
+    .about-page-hero-background {
+      height: calc(90vh - 40px);
+      background-image: url(../../Images/AboutUs/cutedogs.png);
+      background-color: transparent;
+      background-position: center;
+      background-repeat: no-repeat;
+      object-fit: cover;
+      background-size: cover;
+      filter: brightness(70%);
+      
+      @supports not (-webkit-touch-callout: none) { 
+        background-attachment: fixed;
+      }      
+    }
+  
+    .about-page-hero-content-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+  
+      .about-page-hero-content-wrapper {
+        text-align: center;
+        font-size: 28px;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 0px 40px;
+  
+        .about-page-hero-content-subtext {
+          font-weight: 600;
+          margin-top: 30px;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .about-page-values-container {
+    display: grid; 
+    grid-template-columns: 1fr;
+    gap: 40px;
+    background-color: $off-white;
+
+    .about-page-values-intro-wrapper {
+      padding: 40px;
+
+      .about-page-values-intro-header {
+        color: $dark;
+        font-weight: 600;
+        font-size: 28px;
+      }
+
+      .about-page-values-intro {
+        padding-top: 20px;
+        font-size: 20px;
+        color: $dark;
+      }
+    }
+
+    .about-page-values-wrapper {
+      display: grid;
+      padding: 40px;
+      padding-top: 0px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+
+      .about-page-value-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px;
+        gap: 20px;
+
+        .about-page-our-value-icon-wrapper {
+          width: 50px;
+          height: 50px;
+          padding: 5px;
+          border-radius: 5px;
+          background-color: $secondary;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+              
+          .about-page-value-icon {
+            object-fit: cover;
+            width: 100%;
+          }
+  
+          .about-page-value-icon-smiley {
+            object-position: 0px -4px;
+          }
+
+          .about-page-value-icon-quality {
+            width: 90%;
+          }
+
+          .about-page-value-icon-compass {
+            width: 90%;
+          }
+          .about-page-value-icon-eco {
+            width: 90%;
+          }
+
+          .about-page-value-icon-creativity {
+            width: 90%;
+          }
+
+          .about-page-value-icon-community {
+            width: 100%;
+          }
+        }
+
+        .about-page-value-header {
+          color: $dark;
+          font-weight: 600;
+        }
+
+        .about-page-value-text {
+          color: #000;
+          line-height: 25px;
+        }
+      }
+    }
+  }
+
+  .about-page-leadership-wrapper {
+    padding: 40px;
+    padding-bottom: 80px;
+
+    .about-page-leadership-header {
+      font-size: 28px;
+      color: $dark;
+      font-weight: 600;
+    }
+
+    .about-page-leadership-leaders-wrapper {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+
+      .about-page-leadership-leader-wrapper {
+        display: flex;
+
+        .about-page-leadership-leader-image-wrapper {
+          width: 40vw;
+          max-width: 305px;
+          height: calc(40vw - 109.48px);
+          max-height: 305px;
+          background-color: #F0F0F0;
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .about-page-leadership-leader-image {
+            width: 80%;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+
+        .about-page-leadership-leader-text-wrapper {
+          width: 100%;
+          margin-left: 40px;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 30px 30px;
+          gap: 20px;
+
+          .about-page-leadership-leader-name {
+            font-weight: 600;
+            font-size: 20px;
+            color: $dark;
+          }
+
+          .about-page-leadership-leader-experience {
+            font-size: 16px;
+            color: $dark;
+            font-weight: 600;
+          }
+
+          .about-page-leadership-leader-text {
+            line-height: 25px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+        }
+      }
+    }
+  }
+}

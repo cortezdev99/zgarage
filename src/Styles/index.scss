@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // background-color: #e1e0e0;
-  background-color: #f4f4f4;
+  // background-color: #f4f4f4;
   box-sizing: border-box;
 }
 
@@ -93,3 +93,13 @@ code {
 
 @import url(Login/loginMainStyles.scss);
 @import url(Login/loginMediaQueries.scss);
+
+//  **** Pricing and Services ****
+
+@import url(Pricing/pricingMainStyles.scss);
+@import url(Pricing/pricingMediaQueries.scss);
+
+//  *** About Us ***
+
+@import url(AboutUs/aboutUsMainStyles.scss);
+@import url(AboutUs/aboutUsMediaQueries.scss);

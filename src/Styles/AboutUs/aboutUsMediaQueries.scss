@@ -1,0 +1,148 @@
+@media (max-width: 650px) {
+  .about-us-wrapper {
+    .about-page-intro-wrapper {
+      margin-top: 40px;
+
+      .about-page-intro {
+        font-size: 24px;
+      }
+    }
+
+    .about-page-our-culture-container {
+      .about-page-our-culture-header {
+        font-size: 24px;
+      }
+
+      .about-page-our-culture-wrapper {
+        .about-page-our-culture-items-wrapper {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+
+    .about-page-values-container {
+      .about-page-values-intro-wrapper {
+        .about-page-values-intro-header {
+          font-size: 24px;
+        }
+
+        .about-page-values-intro {
+          font-size: 18px;
+        }
+      }
+
+      .about-page-values-wrapper {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .about-page-hero-wrapper {
+      .about-page-hero-content-container {
+        .about-page-hero-content-wrapper {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .about-page-leadership-wrapper {
+      padding-bottom: 40px;
+
+      .about-page-leadership-header {
+        font-size: 24px;
+      }
+
+      .about-page-leadership-leaders-wrapper {
+        .about-page-leadership-leader-wrapper {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+
+          .about-page-leadership-leader-image-wrapper {
+            width: 30vw;
+            height: 30vw;
+            min-width: 125px;
+            min-height: 125px;
+          }
+
+          .about-page-leadership-leader-text-wrapper {
+            margin: 0px;
+
+            .about-page-leadership-leader-name {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .about-us-wrapper {
+    .about-page-values-container {
+      .about-page-values-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .about-us-wrapper {
+    .about-page-our-culture-container {
+      &::before {
+        height: 60px;
+        top: -59px;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .about-us-wrapper {
+    .about-page-intro-wrapper {
+      margin-top: 40px;
+      padding: 40px 20px;
+    }
+
+    .about-page-our-culture-container {
+      margin-top: 60px;
+
+      &:before {
+        height: 40px;
+        top: -39px;
+      }
+
+      .about-page-our-culture-header {
+        padding: 40px 20px;
+      }
+
+      .about-page-our-culture-wrapper {
+        padding: 40px 20px;
+      }
+    }
+
+    .about-page-values-container {
+      .about-page-values-intro-wrapper {
+        padding: 40px 20px;
+      }
+
+      .about-page-values-wrapper {
+        padding: 0px 20px 40px;
+      }
+    }
+
+    .about-page-hero-wrapper {
+      .about-page-hero-content-container {
+        .about-page-hero-content-wrapper {
+          font-size: 20px;
+          padding: 0px 20px
+        }
+      }
+    }
+
+    .about-page-leadership-wrapper {
+      padding: 40px 20px;
+    }
+  }
+}

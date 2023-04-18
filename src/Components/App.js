@@ -2,11 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PricingContext from "../Contexts/PricingContext";
 import PricingProvider from "../Providers/PricingProvider";
 import "../Styles/index.scss";
+import AboutUs from "./AboutUs/AboutUs";
 import Footer from "./Footer/Footer";
 import Homepage from "./Home/Homepage";
 import Login from "./Login/Login";
 import Navbar from "./Navbar/Navbar";
-import OurTeam from "./OurTeam/OurTeam";
 import PhotoGallery from "./PhotoGallery/PhotoGallery";
 import Pricing from "./Pricing/Pricing";
 import ScheduleAppointment from "./ScheduleAppointment/ScheduleAppointment";
@@ -36,7 +36,7 @@ const App = () => {
               </PricingProvider>
             }
           />
-          <Route exact path="/our-team" element={<OurTeam />} />
+          <Route exact path="/our-team" element={<AboutUs />} />
           <Route exact path="/photo-gallery" element={<PhotoGallery />} />
           <Route exact path="/login" element={<Login />} />
         </Routes>
