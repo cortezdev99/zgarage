@@ -1,81 +1,200 @@
-.pricing-and-services-container {
-  .pricing-and-services-wrapper {
-    padding: 40px;
+// .pricing-and-services-container {
+//   .pricing-and-services-wrapper {
+//     padding: 40px;
 
-    .services-heading-wrapper {
-      text-align: center;
-      padding-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.75px;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+//     .services-heading-wrapper {
+//       text-align: center;
+//       padding-bottom: 10px;
+//       text-transform: uppercase;
+//       letter-spacing: 0.75px;
+//       font-size: 18px;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
   
-      .services-paw-print-group-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 5px;
-        padding-right: 10px;
+//       .services-paw-print-group-wrapper {
+//         display: grid;
+//         grid-template-columns: 1fr 1fr 1fr;
+//         column-gap: 5px;
+//         padding-right: 10px;
 
-        .services-paw-print-left {
-          transform: rotate(315deg);
-        }
+//         .services-paw-print-left {
+//           transform: rotate(315deg);
+//         }
 
-        .services-paw-print-straight {
-          position: relative;
-          top: -15px;
-        }
+//         .services-paw-print-straight {
+//           position: relative;
+//           top: -15px;
+//         }
 
-        .services-paw-print-right {
-          transform: rotate(45deg);
-        }
+//         .services-paw-print-right {
+//           transform: rotate(45deg);
+//         }
+//       }
+
+//       .services-paw-print-right-group-wrapper {
+//         padding-right: 0px;
+//         padding-left: 10px;
+//       }
+//     }
+
+//     .services-wrapper {
+//       margin-top: 40px;
+//       display: grid;
+//       grid-template-columns: 1fr 1fr;
+//       column-gap: 40px;
+
+//       .services-group-container {
+//         .service-heading {
+//           padding-bottom: 10px;
+//           border-bottom: 1.5px solid #1d1d1d;
+//         }
+
+//         .services-group-wrapper {
+//           margin: 20px 0px 0px;
+
+//           .service {
+//             padding-bottom: 10px;
+//           }
+//         }
+
+//         .services-group-wrapper-varient {
+//           direction: rtl;
+//         }
+//       }
+
+//       .service-image-wrapper {
+//         align-self: center;
+//         justify-self: end;
+
+//         .service-image {
+//           width: 100%;
+//           border-radius: 15px;
+//           display: flex;
+//         }
+//       }
+
+//       .service-image-wrapper-varient {
+//         justify-self: start;
+//       }
+//     }
+//   }
+// }
+
+@import "../VarsAndMixins/colors.scss";
+
+.pricing-container {
+  .pricing-intro-wrapper {
+    padding: 80px 80px 120px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+    color: $white;
+    background: $secondary;
+    position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    left: 0;
+    bottom: -99px;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-color: #071a2b;
+    -webkit-mask-position: top;
+    mask-position: top;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    transform: scaleX(-1);
+    -webkit-mask-image: url(../../Images/Design/bubble.svg);
+    mask-image: url(../../Images/Design/bubble.svg);
+    pointer-events: none;
+  }
+
+    .pricing-intro-header {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .pricing-intro-text {
+      font-size: 24px;
+      max-width: 80%;
+      justify-self: center;
+    }
+  }
+
+  .services-wrapper {
+    position: relative;
+    top: -80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 40px;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #071a2b;
+    
+    .service-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: min-content 1fr min-content min-content;
+      gap: 20px;
+      padding: 20px;
+      background-color: #beebfa;
+      text-align: center;
+      z-index: 100;
+      border-radius: 5px;
+      // #bbfabb
+
+      .service-header {
+        font-size: 20px;
+        align-items: center;
+        font-weight: 600;
       }
 
-      .services-paw-print-right-group-wrapper {
-        padding-right: 0px;
-        padding-left: 10px;
+      .service-descript {
+        font-size: 16px;
+        letter-spacing: 0.75px;
+        line-height: 25px;
+        // display: flex;
+        align-self: stretch;
+        // display: flex;
+        // align-items: flex-start;
+        // flex: 1;
+      }
+
+      .service-price-range {
+        font-size: 20px;
+        font-weight: 600;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .service-book-now-btn {
+        padding: 0px;
+        height: 38px;
+        border-radius: 20px;
+        background-color: #1bb3f7;
+        border: 1px solid #1bb3f7;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
 
-    .services-wrapper {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 40px;
+    .service-wrapper-alt {
+      background-color: #bbfabb;
 
-      .services-group-container {
-        .service-heading {
-          padding-bottom: 10px;
-          border-bottom: 1.5px solid #1d1d1d;
-        }
-
-        .services-group-wrapper {
-          margin: 20px 0px 0px;
-
-          .service {
-            padding-bottom: 10px;
-          }
-        }
-
-        .services-group-wrapper-varient {
-          direction: rtl;
-        }
-      }
-
-      .service-image-wrapper {
-        align-self: center;
-        justify-self: end;
-
-        .service-image {
-          width: 100%;
-          border-radius: 15px;
-          display: flex;
-        }
-      }
-
-      .service-image-wrapper-varient {
-        justify-self: start;
+      .service-book-now-btn-alt {
+        background-color: #54de62;
+        border: 1px solid #54de62;
       }
     }
   }
